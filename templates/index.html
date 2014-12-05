@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Welcome to your starter code! </h1>
+Do some experimenting and make some changes.
+
+<br><h2> Please select a term: </h2>
+    <select>
+    {% for term in terms %}
+    <option value=term['TermCode']>{{ term['TermDescr'] }}</option><br>
+{% endfor %}
+</select>
+    
+<br><h3> Please select a school: </h3>
+    <select>
+    {% for school in schools %}
+    <option>{{ school['SchoolDescr'] }}</option><br>
+{% endfor %}
+</select>
+
+{% if api_error %}
+<b>Getting the API terms failed!</b>
+Did you set the API token?
+{% endif %}
+
+{% endblock %}
